@@ -1,24 +1,24 @@
-package com.zzz.jniproject;
+package com.testJni;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final TextView showText = (TextView) findViewById(R.id.show_text);
-        showText.setText(testJni());
+        showText.setText(print());
 
     }
 
     static {
-        System.loadLibrary("MyLibrary");
+        System.loadLibrary("print");
     }
 
-    public native String testJni();
+    public native String print();
 
 }
