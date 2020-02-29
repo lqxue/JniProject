@@ -9,12 +9,20 @@ android {
         versionCode 1
         versionName "1.0"
 
-        // 配置NDK
-        sourceSets.main{
-            jni.srcDirs = []
-            jniLibs.srcDir "src/main/libs"
+
+        ndk{
+            //设置只生成armeabi-v7a 平台的so库,不写默认生成所有平台
+            //abiFilters 'armeabi-v7a'
         }
     }
+
+    externalNativeBuild{
+        //告诉Gradle在src/main/jni/Android.mk文件中找到根ndk构建脚本
+        ndkBuild{
+            path "src/main/jni/Android.mk"
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false

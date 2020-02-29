@@ -10,15 +10,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final TextView showText = (TextView) findViewById(R.id.show_text);
-        showText.setText(print());
-
+        final TextView showText = findViewById(R.id.show_text);
+        showText.setText(Util.print());
     }
-
-    static {
-        System.loadLibrary("print");
-    }
-
-    public native String print();
-
 }
